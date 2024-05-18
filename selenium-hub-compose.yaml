@@ -1,0 +1,20 @@
+services:
+  selenium-hub:
+    image: selenium/hub:4.21.0-20240517
+    ports:
+      - "4442-4444:4442-4444"
+    networks:
+      - grid
+  node-chrome:
+    image: selenium/node-chrome:4.21.0-20240517
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    shm_size: 2g
+    ports:
+      - 7900:7900
+    networks:
+      - grid
+networks:
+  grid:
