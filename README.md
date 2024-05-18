@@ -1,1 +1,1 @@
-# multi-browser-test
+# multi-browser-tester
