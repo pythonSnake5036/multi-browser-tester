@@ -16,5 +16,16 @@ services:
       - 7900:7900
     networks:
       - grid
+  node-firefox:
+    image: selenium/node-firefox:4.21.0-20240517
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    shm_size: 2g
+    ports:
+      - 7901:7900
+    networks:
+      - grid
 networks:
   grid:
